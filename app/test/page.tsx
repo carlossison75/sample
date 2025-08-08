@@ -15,7 +15,7 @@ export default async function Page() {
 
     console.log(await data.json());
   } catch (error) {
-    console.log('JSON ERROR: ', error);
+    console.log('FETCH ERROR: ', error);
   }
 
   return <div>Page</div>;

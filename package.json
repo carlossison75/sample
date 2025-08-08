@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3212 --turbopack",
-    "build": "cross-env API_PATH=http://localhost:3212/api/ -p 3212 next build",
+    "build": "cross-env API_PATH=http://localhost:3212/api/ next build",
     "start": "next start -p 3212",
     "lint": "next lint"
   },

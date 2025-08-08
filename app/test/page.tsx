@@ -1,12 +1,13 @@
-import PUBLIC_URL from '@/constants';
+import { headers } from 'next/headers';
 
 export const dynamic = 'force-dynamic';
 
 export default async function Page() {
-  console.log(PUBLIC_URL);
-  const data = await fetch('https://sample-lemon-six.vercel.app/api/', {
-    cache: 'no-store',
-  });
+  const headersList = await headers();
+  const protocol = headersList.get('x-forwarded-proto') || 'http';
+  const host = headersList.get('host');
+  const baseUrl = `${protocol}://${host}`;
+  const data = await fetch(`${baseUrl}/api`, { cache: 'no-store' });
 
   console.log(await data.json());
 
